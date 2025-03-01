@@ -1,26 +1,36 @@
-NAME	:= so_long.a
-SRC_DIR	:= srcs
-SRC		:= so_long.c
-OBJ		:= $(SRC:.c=.o)
-CC		:= cc
-CFLAGS	:= -Wall -Wextra -Werror
+NAME = so_long
+SRC = so_long.c so_long_check.c so_long_utils.c \
+		get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
+		so_long_libft.c so_long_check_utils.c so_long_utils_utils.c \
+		so_long_libft_utils.c so_long_utils_x3.c
+OBJ = $(SRC:.c=.o)
+CC = gcc
 
-MLX_DIR	:= minilibx-linux
-MLX_LIB	:= -L$(MLX_DIR) -lmlx -lXext -lX11
+CFLAGS = -Wall -Wextra -Werror
+MLX_DIR = ./minilibx-linux
+MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -lX11 -lXext
 
-all: $(NAME)
+FTPRINTF_DIR = ./ft_printf
+FTPRINTF_LIB = $(FTPRINTF_DIR)/libftprintf.a
+
+all: $(FTPRINTF_LIB) $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(MLX_LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(FTPRINTF_LIB) $(MLX_FLAGS) -o $(NAME)
 
-%.o: $(SRC_DIR)/%.c so_long.h
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(FTPRINTF_LIB):
+	$(MAKE) -C $(FTPRINTF_DIR)
 
 clean:
 	rm -f $(OBJ)
+	$(MAKE) -C $(FTPRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	$(MAKE) -C $(FTPRINTF_DIR) fclean
 
 re: fclean all
 
