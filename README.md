@@ -6,7 +6,7 @@
 
 ## 📖 About
 
-**so_long** is a small 2D game project that introduces basic game development concepts using the MiniLibX graphics library. The player controls a cow that must collect all flowers before reaching the barn to escape. The project focuses on window management, event handling, texture rendering, and basic game logic implementation.
+**so_long** is a small 2D game project that introduces basic game development concepts using the MiniLibX graphics library. The player controls a cow that must collect all flowers before reaching the barn. The project focuses on window management, event handling, texture rendering, and basic game logic implementation.
 
 Through this project, I gained experience with graphics programming, event-driven programming, memory management, and map parsing/validation.
 
@@ -21,9 +21,9 @@ Through this project, I gained experience with graphics programming, event-drive
 
 ## 🎮 Game Concept
 
-### Story
+### Gameplay
 
-You're a cow on a farm trying to collect all the flowers before escaping to the barn! Navigate through the map, avoid the mountains (walls), collect every flower, and find your way to the barn's exit.
+You're a cow on a farm trying to collect all the flowers before entering to the barn! Navigate through the map, avoid the mountains (walls), collect every flower, and find your way to the barn's exit.
 
 ### Objective
 
@@ -226,17 +226,6 @@ typedef struct s_data
 
 ## 🧪 Algorithm Features
 
-### Map Validation
-
-The program performs comprehensive map validation:
-
-1. **File Extension Check**: Ensures file ends with `.ber`
-2. **Rectangle Check**: Verifies all rows have equal length
-3. **Wall Check**: Confirms map is surrounded by walls
-4. **Character Validation**: Ensures only valid characters exist
-5. **Element Count**: Validates exactly 1 player, 1 exit, and ≥1 collectible
-6. **Path Validation**: Uses flood fill algorithm to ensure all collectibles and exit are reachable
-
 ### Flood Fill Algorithm
 
 The `fill_v()` function implements a recursive flood fill to validate path accessibility:
@@ -310,7 +299,3 @@ Example:
 ## 👤 Author
 
 **opopov** - 42 School Student
-
----
-
-*This project is part of the 42 School curriculum, designed to teach graphics programming and game development fundamentals.*
