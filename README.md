@@ -298,4 +298,4 @@ Example:
 
 ## 👤 Author
 
-**opopov** - 42 School Student
+**opopov**
